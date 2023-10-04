@@ -1,5 +1,6 @@
 package com.ooothla.productservice.services;
 
+import com.ooothla.productservice.exceptions.NotFoundException;
 import com.ooothla.productservice.thirdpartyclients.FakeStoreProductDto;
 import com.ooothla.productservice.dtos.GenericProductDto;
 import com.ooothla.productservice.thirdpartyclients.FakeStoryProductServiceClient;
@@ -21,8 +22,14 @@ public class FakeStoreProductService implements ProductService{
     }
 
     @Override
-    public GenericProductDto getProductById(Long id) {
+    public GenericProductDto getProductById(Long id) throws NotFoundException {
+
         FakeStoreProductDto response = fakeStoryProductServiceClient.getProductById(id);
+
+        if(response == null){
+            throw new NotFoundException("Product not found");
+        }
+
         return modelMapper.map(response, GenericProductDto.class);
     }
 

@@ -1,6 +1,7 @@
 package com.ooothla.productservice.controllers;
 
 import com.ooothla.productservice.dtos.GenericProductDto;
+import com.ooothla.productservice.exceptions.NotFoundException;
 import com.ooothla.productservice.services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public GenericProductDto getProductById(@PathVariable Long id){
+    public GenericProductDto getProductById(@PathVariable Long id) throws NotFoundException {
         return productService.getProductById(id);
     }
 
