@@ -1,4 +1,4 @@
-package com.ooothla.productservice.dtos;
+package com.ooothla.productservice.thirdpartyclients;
 
 import lombok.Data;
 

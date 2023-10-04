@@ -1,7 +1,6 @@
 package com.ooothla.productservice.controllers;
 
 import com.ooothla.productservice.dtos.GenericProductDto;
-import com.ooothla.productservice.services.FakeStoreProductService;
 import com.ooothla.productservice.services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
